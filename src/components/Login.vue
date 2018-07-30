@@ -23,8 +23,6 @@
 
 
 <script>
-// blog  https://wd2977814978jcnbar.wilddogio.com/
-// pizza https://wd9077913423avyuea.wilddogio.com/
 export default {
   data() {
     return {
@@ -46,11 +44,20 @@ export default {
           let result = users.filter(user => {
             return user.email === this.email && user.password === this.password;
           });
-          if (users.length > 0) {
-            this.$router.push({ name: "home" });
+          if (result != null && result.length > 0) {
+            this.$store.dispatch("setUser", result[0].email);
+            this.$router.go(-1);
+          } else {
+            alert("账号密码错误！");
+            this.$store.dispatch("setUser", null);
           }
         });
     }
+  },
+  beforeRouteEnter(to, from, next) {
+    next(vm => {
+      vm.$store.dispatch("setUser", null);
+    });
   }
 };
 </script>

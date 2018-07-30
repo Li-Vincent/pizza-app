@@ -58,8 +58,7 @@ export default {
   data() {
     return {
       cart: [],
-      cartEmptyText: "购物车中没有商品",
-      getMenuItems: {}
+      cartEmptyText: "购物车中没有商品"
     };
   },
   methods: {
@@ -105,12 +104,15 @@ export default {
       return this.cart.reduce((sum, item) => {
         return (sum += item.price * item.quantity);
       }, 0);
+    },
+    getMenuItems(){
+        return this.$store.getters.getMenuItems;
     }
   },
   created() {
     this.$axios
       .get("menu-lee.json")
-      .then(res => (this.getMenuItems = res.data))
+      .then(res => (this.$store.commit("setMenuItems",res.data)))
       .catch(err => console.log(err));
   }
 };

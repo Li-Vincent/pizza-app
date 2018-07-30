@@ -65,8 +65,7 @@ export default {
         price1: "",
         size2: "",
         price2: ""
-      },
-      getMenuItems: []
+      }
     };
   },
   methods: {
@@ -87,14 +86,13 @@ export default {
       };
       this.$axios
         .post("menu-lee.json", data)
-        .then(res => res.data)
-        .then(data => this.$router.push({ name: "menu" }))
+        .then(res => this.$store.commit("addItem", data))
         .catch(err => console.log(err));
     },
     deleteItem(item) {
       this.$axios
         .delete("menu-lee/" + item.id + ".json")
-        .then(res => this.$router.push({ name: "menu" }));
+        .then(res => this.$store.commit("removeItem", item));
     }
   },
   created() {
@@ -107,9 +105,14 @@ export default {
           data[key].id = key;
           menuArray.push(data[key]);
         }
-        this.getMenuItems = menuArray;
+        this.$store.commit("setMenuItems", menuArray);
       })
       .catch(err => console.log(err));
+  },
+  computed: {
+    getMenuItems() {
+      return this.$store.getters.getMenuItems;
+    }
   }
   //   beforeRouteEnter(to, from, next) {
   //     next(vm => {

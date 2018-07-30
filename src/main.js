@@ -4,12 +4,12 @@ import Vue from 'vue'
 import App from './App'
 import axios from 'axios'
 import VueRouter from 'vue-router'
-import Vuex from 'vuex'
 
 import {routes} from './routes/routes'
 
+import {store} from './store/store.js'
+
 Vue.use(VueRouter)
-Vue.use(Vuex)
 
 axios.defaults.baseURL = 'https://wd9077913423avyuea.wilddogio.com/'
 Vue.prototype.$axios = axios
@@ -46,6 +46,7 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   router,
+  store,
   el: '#app',
   components: { App },
   template: '<App/>'
