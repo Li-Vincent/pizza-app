@@ -1,9 +1,9 @@
 export default {
     state: {
-        isLogin: false
+        currentUser: null
     },
     getters: {
-        isLogin: state => state.isLogin
+        currentUser: state => state.currentUser
     },
     mutations: {
         userStatus(state, user) {
@@ -21,4 +21,5 @@ export default {
             commit("userStatus", user)
         }
     }
+
 }

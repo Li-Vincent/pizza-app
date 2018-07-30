@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import users from './modules/users'
+import user from './modules/user'
 import status from './modules/status'
 import menu from './modules/menu'
 
@@ -9,7 +9,7 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
     modules:{
-        menu,status,users
+        menu,status,user
     }
 })
 

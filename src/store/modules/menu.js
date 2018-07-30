@@ -1,24 +1,25 @@
-
- const state={
-        menuItems:{}
-    }
-    const   getters={
-        getMenuItems: state=>state.menuItems
-    }
-    const mutations={
-        setMenuItems(state,data){
+export default {
+    state: {
+        menuItems: {}
+    },
+    getters: {
+        getMenuItems: state => state.menuItems
+    },
+    mutations: {
+        setMenuItems(state, data) {
             state.menuItems = data
         },
-        removeItem(state,data){
-            state.menuItems.forEach((item,index)=>{
-                if(item==data){
-                    state.menuItems.splice(index,1)
+        removeItem(state, data) {
+            state.menuItems.forEach((item, index) => {
+                if (item == data) {
+                    state.menuItems.splice(index, 1)
                 }
             })
         },
-        addItem(state,data){
+        addItem(state, data) {
             state.menuItems.push(data)
         }
+    },
+    actions: {
     }
-    const actions={
-    }
+}

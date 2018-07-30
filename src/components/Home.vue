@@ -30,10 +30,10 @@ export default {
 }
 .background{
     background: #eee;
-    opacity: 0.8;
+    opacity: 0.7;
     max-width: 70vw;
     margin: 0 auto;
-    padding: 20px 0;
-    border-radius: 20px;
+    padding: 40px 0;
+    border-radius: 10px;
 }
 </style>

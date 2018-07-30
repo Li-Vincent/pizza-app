@@ -113,12 +113,15 @@ export default {
     getMenuItems() {
       return this.$store.getters.getMenuItems;
     }
+  },
+  beforeRouteEnter(to, from, next) {
+    next(vm => {
+      if (!vm.$store.getters.currentUser) {
+        alert("您还未登陆，请先登陆");
+        vm.$router.push({ name: "login" });
+      }
+    });
   }
-  //   beforeRouteEnter(to, from, next) {
-  //     next(vm => {
-  //       alert("hello " + vm.name);
-  //     });
-  //   }
 };
 </script>
 
