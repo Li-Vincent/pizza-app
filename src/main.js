@@ -4,10 +4,12 @@ import Vue from 'vue'
 import App from './App'
 import axios from 'axios'
 import VueRouter from 'vue-router'
+import Vuex from 'vuex'
 
 import {routes} from './routes/routes'
 
 Vue.use(VueRouter)
+Vue.use(Vuex)
 
 axios.defaults.baseURL = 'https://wd9077913423avyuea.wilddogio.com/'
 Vue.prototype.$axios = axios
