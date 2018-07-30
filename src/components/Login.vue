@@ -46,7 +46,7 @@ export default {
           });
           if (result != null && result.length > 0) {
             this.$store.dispatch("setUser", result[0].email);
-            this.$router.push({name:'home'});
+            this.$router.push({ name: "home" });
           } else {
             alert("账号密码错误！");
             this.$store.dispatch("setUser", null);
