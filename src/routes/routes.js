@@ -12,7 +12,12 @@ import Phone from './../components/about/Phone'
 import Person from './../components/about/Person'
 
 export const routes = [
-    { path:'/', name:'home', component:Home },
+    { path:'/', name:'home', components:{
+        default:Home,
+        'guide':Guide,
+        'history':History,
+        'delivery':Delivery,
+    } },
     { path:'/menu', name:'menu', component:Menu },
     { path:'/about', name:'about', component:About, redirect:'/guide',children: [
         {path:'/guide', name:'guide', component:Guide},
@@ -28,4 +33,4 @@ export const routes = [
     { path:'/register', name:'register', component:Register },
     { path:'*', redirect:'/' }
 ]
-    
+
